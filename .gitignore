@@ -1,0 +1,6 @@
+cmake-build-debug/
+src/raygui.h
+res/
+.idea/
+.clang-format
+.clang-tidy

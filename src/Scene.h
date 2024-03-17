@@ -6,6 +6,7 @@
 #define EXAMPLE_SCENE_H
 
 #include "CommandListener.h"
+#include "Globals.h"
 #include <memory>
 #include <list>
 #include <iostream>
@@ -60,6 +61,7 @@ public:
     virtual void goDown();
     virtual void goRight();
     virtual void goNowhere();
+    virtual void goFullScreen();
 
     void setShouldQuit(bool value);
     bool getShouldQuit();

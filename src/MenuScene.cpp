@@ -4,7 +4,6 @@
 
 #include "MenuScene.h"
 #include "CharScene.h"
-#include "Globals.h"
 
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
@@ -25,7 +24,7 @@ void MenuScene::setCanPlay(bool value) {
 
 // override Scene methods
 std::shared_ptr<Scene> MenuScene::update() {
-    if(getCanPlay()) {
+    if (getCanPlay()) {
         return std::make_shared<CharScene>();
     } else {
         return nullptr;
@@ -34,15 +33,19 @@ std::shared_ptr<Scene> MenuScene::update() {
 
 void MenuScene::draw() {
 
+    int display = GetCurrentMonitor();
+    int monitorHeight = GetMonitorHeight(display);
+    int monitorWidth = GetMonitorWidth(display);
     int textSize = MeasureText("Game Name", 30);
-    int xCenterText = screenWidth/2 - textSize/2;
+    int xCenterText = (int)(static_cast<float>((int)(monitorWidth/ 2)  - (int)(textSize / 2)));
+
     DrawText("Game Name", xCenterText, 100, 30, (Color){153, 230, 0, 255});
     Scene::draw();
-    if (GuiButton((Rectangle){ (int)(screenWidth/2 - 100), 200, 200, 30 },"Play")){
+    if (GuiButton((Rectangle){static_cast<float>((int) (monitorWidth / 2) - 100), static_cast<float>((int) (monitorHeight / 3)), 200, 30}, "Play")) {
         setCanPlay(true);
     }
 
-    if(GuiButton((Rectangle) {(int)(screenWidth/2 - 100),250,200,30}, GuiIconText(ICON_DOOR, "Quit Game"))) {
+    if (GuiButton((Rectangle){static_cast<float>((int) (monitorWidth / 2) - 100), static_cast<float>((int) (monitorHeight / 3 - 50)), 200, 30}, GuiIconText(ICON_DOOR, "Quit Game"))) {
         setShouldQuit(true);
     }
 }

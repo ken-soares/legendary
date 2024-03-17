@@ -44,7 +44,7 @@ std::shared_ptr<Scene> Scene::update() {
 
         actor->position = Vector2Add(actor->position, actor->velocity);
         auto boundingRect = actor->getBoundingBox();
-        auto distToGround = (float)groundYpos - (boundingRect.y + boundingRect.height);
+        auto distToGround = (float) groundYpos - (boundingRect.y + boundingRect.height);
         bool isGrounded = (distToGround <= 0);
 
         if (isGrounded) {
@@ -102,4 +102,16 @@ void Scene::goNowhere() {
     if (playerAvatar) {
         playerAvatar->goNowhere();
     }
+}
+
+void Scene::goFullScreen() {
+    int display = GetCurrentMonitor();
+
+    if (IsWindowFullscreen()) {
+        SetWindowSize(screenWidth, screenHeight);
+    } else {
+        SetWindowSize(GetMonitorWidth(display), GetMonitorHeight(display));
+    }
+
+    ToggleFullscreen();
 }

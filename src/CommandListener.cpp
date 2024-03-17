@@ -22,3 +22,7 @@ void CommandListener::goDown() {
 
 void CommandListener::goNowhere() {
 }
+
+void CommandListener::goFullScreen() {
+
+}

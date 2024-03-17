@@ -16,6 +16,8 @@ public:
     virtual void goUp();
     virtual void goDown();
     virtual void goNowhere();
+
+    virtual void goFullScreen();
 };
 
 

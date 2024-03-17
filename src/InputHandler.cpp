@@ -5,6 +5,7 @@
 #include "InputHandler.h"
 #include "CommandListener.h"
 #include "raylib.h"
+#include <iostream>
 
 // trivial constructor and destructor
 InputHandler::InputHandler() = default;
@@ -23,6 +24,10 @@ void InputHandler::handleInput(CommandListener &listener) {
 
     if (IsKeyPressed(KEY_UP)) {
         listener.goUp();
+    }
+
+    if(IsKeyPressed(KEY_ENTER) && (IsKeyDown(KEY_LEFT_ALT) || IsKeyDown(KEY_RIGHT_ALT))) {
+        listener.goFullScreen();
     }
 
 }

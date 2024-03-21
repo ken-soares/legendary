@@ -64,7 +64,7 @@ public:
     virtual void goFullScreen();
 
     void setShouldQuit(bool value);
-    bool getShouldQuit();
+    bool getShouldQuit() const;
 protected:
 
     bool shouldQuit = false;

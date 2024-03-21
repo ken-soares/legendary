@@ -13,7 +13,7 @@ void Scene::setShouldQuit(bool value) {
     shouldQuit = value;
 }
 
-bool Scene::getShouldQuit() {
+bool Scene::getShouldQuit() const {
     return shouldQuit;
 }
 
@@ -105,13 +105,5 @@ void Scene::goNowhere() {
 }
 
 void Scene::goFullScreen() {
-    int display = GetCurrentMonitor();
-
-    if (IsWindowFullscreen()) {
-        SetWindowSize(screenWidth, screenHeight);
-    } else {
-        SetWindowSize(GetMonitorWidth(display), GetMonitorHeight(display));
-    }
-
     ToggleFullscreen();
 }

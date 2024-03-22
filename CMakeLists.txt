@@ -25,7 +25,7 @@ endif()
 
 # Our Project
 
-add_executable(${PROJECT_NAME}
+add_executable(${PROJECT_NAME} WIN32
         src/main.cpp
         src/InputHandler.cpp
         src/InputHandler.h
@@ -46,6 +46,7 @@ add_executable(${PROJECT_NAME}
 
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)
+target_link_libraries(${PROJECT_NAME} -static)
 
 # Web Configurations
 if (${PLATFORM} STREQUAL "Web")
